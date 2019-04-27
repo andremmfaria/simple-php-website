@@ -19,7 +19,7 @@ RUN chown -R nobody.nobody /run && \
 	chown -R nobody.nobody /var/log/nginx && \
 	mkdir -p /var/www/html
 	
-COPY --chown=nobody .. /var/www/html
+COPY --chown=nobody . /var/www/html
 
 WORKDIR /var/www/html
 	
