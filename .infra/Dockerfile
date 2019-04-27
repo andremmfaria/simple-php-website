@@ -8,10 +8,10 @@ RUN apk --no-cache add php7 php7-fpm php7-mysqli php7-json php7-openssl php7-cur
     && rm -rf /var/cache/apk/*
 
 # Configure nginx PHP-FPM and supervisord
-COPY config/nginx.conf /etc/nginx/nginx.conf
-COPY config/fpm-pool.conf /etc/php7/php-fpm.d/www.conf
-COPY config/php.ini /etc/php7/conf.d/zzz_custom.ini
-COPY config/supervisord.conf /etc/supervisor/conf.d/supervisord.conf
+COPY .infra/config/nginx.conf /etc/nginx/nginx.conf
+COPY .infra/config/fpm-pool.conf /etc/php7/php-fpm.d/www.conf
+COPY .infra/config/php.ini /etc/php7/conf.d/zzz_custom.ini
+COPY .infra/config/supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 
 RUN chown -R nobody.nobody /run && \
 	chown -R nobody.nobody /var/lib/nginx && \
